@@ -1,0 +1,54 @@
+﻿@using WebAppWithIdentity.ViewModels;
+@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-3 card p-3">
+        <h2 class="text-center text-info">@ViewData["Title"]</h2>
+
+        <form asp-action="Login" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="mb-1">
+                <label asp-for="Username" class="form-label" ><p>INSERISCI LA TUA EMAIL</p></label>
+                <input asp-for="Username" class="form-control" autocomplete="username" aria-required="true" placeholder="Write a Username" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="mb-1 form-check">
+                <label asp-for="RememberMe" class="form-check-label">
+                    <input class="form-check-input" asp-for="RememberMe" />
+                    @Html.DisplayNameFor(m => m.RememberMe)
+                </label>
+            </div>
+            @* <div>
+            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+            </div> *@
+            <div class="row">
+                <div class="col-8">
+                    @* <p>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p> *@
+                    <p>
+                        <a asp-action="Register">Don't have account - Register as a new user</a>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <p>
+                        <input type="submit" value="Login" class="btn btn-primary btn-sm float-end" />
+                    </p>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
