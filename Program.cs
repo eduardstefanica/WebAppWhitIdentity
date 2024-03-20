@@ -20,7 +20,7 @@ namespace WebAppWithIdentity
                 options.AddPolicy(name: ReactSpecificOrigins,
                                        builder =>
                                        {
-                                           builder.WithOrigins("http://localhost:3000")
+                                           builder.WithOrigins("http://localhost:3000", "https://localhost:44315")
                                                .AllowAnyHeader()
                                                .AllowAnyMethod();
                                        });
@@ -68,6 +68,7 @@ namespace WebAppWithIdentity
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            //app.UseSwagger();
 
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
