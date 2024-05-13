@@ -1,1 +1,1 @@
-applicazione che simula la register e il login sulla piattaforma
+applicazione che simula la register e il login sulla piattaforma web
